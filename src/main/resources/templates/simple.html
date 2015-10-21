@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Hello !</title>
+	</head>
+
+	<body>
+		<h1>Bonjour les terriens !</h1>
+		
+		<p th:text="${hi}"></p>
+		<div style="width:200px">
+			<ul>
+				<li th:each="v : ${veges}" th:text="${v.name}" th:attr="style='background: ' + ${v.color}"></li>
+			</ul>
+		</div>
+		
+		<form method="post" th:action="@{/addvege}">
+			Vegetable name: <input type="text" name="name"/>
+			Vegetable price: <input type="text" name="color"/>
+			Vegetable color: <input type="number" step="0.1" name="price"/>
+			<input type="submit" value="Submit"/>
+		</form>
+	</body>
+</html>
